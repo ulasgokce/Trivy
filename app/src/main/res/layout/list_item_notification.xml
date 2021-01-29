@@ -13,7 +13,6 @@
         android:id="@+id/notification_message"
         android:layout_height="50dp"
         android:textSize="20sp"
-        android:text="Ulasgokce followed you"
         android:layout_marginLeft="15dp"
         android:layout_centerVertical="true"
         android:layout_marginTop="15dp"

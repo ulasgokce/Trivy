@@ -30,23 +30,23 @@ public class LikesActivity extends AppCompatActivity {
     private static final String TAG = "LikesActivity";
     private Context mContext = LikesActivity.this;
     private static final int ACTIVITY_NUM = 3;
-    private FirebaseAuth mAuth;
     private ListView listView;
     private List<Notification> myNotifications;
     private ViewNotificationsAdapter mAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        myNotifications=new ArrayList<>();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_likes);
-        listView=findViewById(R.id.listView);
+        listView = findViewById(R.id.listView);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         Query query = ref.child(getString(R.string.dbname_notification)).orderByChild(getString(R.string.field_receiver)).equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid());
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                myNotifications = new ArrayList<>();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Notification notification = dataSnapshot.getValue(Notification.class);
                     myNotifications.add(notification);
                 }
@@ -57,12 +57,10 @@ public class LikesActivity extends AppCompatActivity {
 
             }
         });
-        mAdapter =new ViewNotificationsAdapter(this,R.layout.list_item_notification,myNotifications);
+        reverseList(myNotifications);
+        mAdapter = new ViewNotificationsAdapter(this, R.layout.list_item_notification, myNotifications);
         listView.setAdapter(mAdapter);
         setupBottomNavigationView();
-
-
-
     }
 
     private void setupBottomNavigationView() {
@@ -71,5 +69,20 @@ public class LikesActivity extends AppCompatActivity {
         Menu menu = view.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
+    }
+
+    public static <T> void reverseList(List<T> list) {
+        // base case: list is empty or only one element is left
+        if (list == null || list.size() <= 1)
+            return;
+
+        // remove first element
+        T value = list.remove(0);
+
+        // recur for remaining items
+        reverseList(list);
+
+        // insert the top element back after recurse for remaining items
+        list.add(value);
     }
 }

@@ -180,7 +180,7 @@ public class ChatActivity extends AppCompatActivity {
                                 if (response.body().success != 1) {
                                     Toast.makeText(ChatActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
                                 } else if (response.body().success == 1) {
-                                    Toast.makeText(ChatActivity.this, "Sended a notification", Toast.LENGTH_SHORT).show();
+                                    Log.d(TAG, "onResponse: Sended a notification");
                                 }
                             }
                         }
