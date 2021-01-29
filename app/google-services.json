@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "251295537393",
+    "project_id": "trivy2-46b13",
+    "storage_bucket": "trivy2-46b13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251295537393:android:34c0ffcc33b7d2b54fb150",
+        "android_client_info": {
+          "package_name": "com.ulasgokce.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251295537393-vscr5lt1mkfvv7urabb8kqlnf7hfok97.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ulasgokce.myapplication",
+            "certificate_hash": "0061e769ae6e6a2ac376574f992ec8cf545063b2"
+          }
+        },
+        {
+          "client_id": "251295537393-rpj85q8e75tlkp1m1g27lo22ma7ri4sq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi-OtpfvBq-_X6aBPRWDsHOAzHikaVtEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "251295537393-rpj85q8e75tlkp1m1g27lo22ma7ri4sq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
