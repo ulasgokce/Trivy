@@ -36,7 +36,6 @@ public class LikesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_likes);
         listView = findViewById(R.id.listView);
@@ -50,6 +49,10 @@ public class LikesActivity extends AppCompatActivity {
                     Notification notification = dataSnapshot.getValue(Notification.class);
                     myNotifications.add(notification);
                 }
+                reverseList(myNotifications);
+                mAdapter = new ViewNotificationsAdapter(LikesActivity.this, R.layout.list_item_notification, myNotifications);
+                listView.setAdapter(mAdapter);
+                setupBottomNavigationView();
             }
 
             @Override
@@ -57,10 +60,7 @@ public class LikesActivity extends AppCompatActivity {
 
             }
         });
-        reverseList(myNotifications);
-        mAdapter = new ViewNotificationsAdapter(this, R.layout.list_item_notification, myNotifications);
-        listView.setAdapter(mAdapter);
-        setupBottomNavigationView();
+
     }
 
     private void setupBottomNavigationView() {
