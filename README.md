@@ -1,1 +1,1 @@
-MyApplication6
+Trivy
